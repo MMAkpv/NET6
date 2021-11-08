@@ -121,6 +121,7 @@ namespace HelloWorld
 
             //úkol - načíst jméno a věk, uložit do souboru txt jmeno;věk, vždy nový řádek
 
+            /*
             while (true)
             {
                 Console.Write("Zadej jméno, x ukončí app: ");
@@ -146,9 +147,46 @@ namespace HelloWorld
 
 
             }
+            */
+
+            //Datum a čas
+
+            /*
+            DateTime date = new DateTime(2020, 12, 22, 19, 0, 0);
+            Console.WriteLine(date);
+
+            Console.WriteLine(DateTime.Now); //aktuální datum a čas
+            Console.WriteLine(DateTime.Now.Date); //pouze datum bez času, resp čas jsou 0
+
+            var twoWeeks = date.AddDays(14); //do nové proměnné jsem přičetl 14 dní k proměnné datem, odečítání adddays se zapornou hodnotou...
+            Console.WriteLine(twoWeeks);
+
+            Console.WriteLine(date.Year); //např. jen rok z datumu
+            Console.WriteLine(date.ToShortDateString());  //datum do zkráceného formátu, řetězec
+            
+             */
+
+            // úkol zjistit zda je uživateli 18 a více let
+
+            Console.WriteLine("Zadej datum oddělené tečkami");
+            DateTime datum = DateTime.Parse(Console.ReadLine());
+
+            TimeSpan ts = DateTime.Now - datum;
+            
 
 
-                Console.ReadKey();
+            if (ts.TotalDays / 365.0 >= 18)
+            {
+                Console.WriteLine("Jsi dospělý");
+            }
+            else
+            {
+                Console.WriteLine("Nejsi dospělý");
+            }
+
+
+
+            Console.ReadKey();
 
         }
 
