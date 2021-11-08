@@ -168,14 +168,14 @@ namespace HelloWorld
 
             // úkol zjistit zda je uživateli 18 a více let
 
-            Console.WriteLine("Zadej datum oddělené tečkami");
+            Console.WriteLine("Zadej datum oddělené tečkami: ");
             DateTime datum = DateTime.Parse(Console.ReadLine());
 
             TimeSpan ts = DateTime.Now - datum;
             
 
 
-            if (ts.TotalDays / 365.0 >= 18)
+            if (ts.TotalDays / 365 >= 18)
             {
                 Console.WriteLine("Jsi dospělý");
             }
