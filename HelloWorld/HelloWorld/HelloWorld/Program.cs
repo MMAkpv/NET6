@@ -9,24 +9,27 @@ namespace HelloWorld
             //pozdrav podle zadaného jména;
             //string name = "Mirek"; //deklaruji promennou typu retezec, priradil jsem text "Mirek"
 
-            //Console.Write("Jak se jmenuješ: ");
-            //string name = Console.ReadLine();
+            /*
+            Console.Write("Jak se jmenuješ: ");
+            string name = Console.ReadLine();
 
-            //Hello(name);
+            Hello(name);
+            */
 
             //vytvorte metodu, ktera vstup vynasobi  2 a pricte hodnotu 10
 
+            /*
             Console.Write("Zadej hodnotu: ");
             int x = int.Parse(Console.ReadLine()); //vstup x parsuju na typ int
             Console.WriteLine(MyMath(x));
-
+            */
             
 
             //převod teploty ze °F na °C
 
             Console.Write("Zadej teplotu ve °F: ");
-            double FTemp = double.Parse(Console.ReadLine());
-            Console.WriteLine($"{FTemp}°F je {TempConversion(FTemp)}°C");
+            double fTemp = double.Parse(Console.ReadLine());
+            Console.WriteLine($"{fTemp}°F je {TempConversion(fTemp)}°C");
 
             Console.ReadLine();
         
@@ -71,10 +74,10 @@ namespace HelloWorld
         /// </summary>
         /// <param name="FTemp"></param>
         /// <returns></returns>
-        static double TempConversion(double FTemp)
+        static double TempConversion(double fTemp)
         {
-            double CTemp = (FTemp - 32) / 1.8;
-            return CTemp;
+            double cTemp = (fTemp - 32) / 1.8;
+            return cTemp;
         }
 
     }
