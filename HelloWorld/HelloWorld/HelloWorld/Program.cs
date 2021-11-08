@@ -20,8 +20,17 @@ namespace HelloWorld
             int x = int.Parse(Console.ReadLine()); //vstup x parsuju na typ int
             Console.WriteLine(MyMath(x));
 
-            Console.ReadLine();
+            
 
+            //převod teploty ze °F na °C
+
+            Console.Write("Zadej teplotu ve °F: ");
+            double FTemp = double.Parse(Console.ReadLine());
+            Console.WriteLine($"{FTemp}°F je {TempConversion(FTemp)}°C");
+
+            Console.ReadLine();
+        
+        
         }
 
         static void Hello(string name)
@@ -57,6 +66,16 @@ namespace HelloWorld
                 return ((x * 2) + 10);
             }
 
+        /// <summary>
+        /// Metoda prevede teplotu ze °F ma °C a vrati vysledek
+        /// </summary>
+        /// <param name="FTemp"></param>
+        /// <returns></returns>
+        static double TempConversion(double FTemp)
+        {
+            double CTemp = (FTemp - 32) / 1.8;
+            return CTemp;
+        }
 
     }
 }
