@@ -47,6 +47,11 @@ namespace HelloWorld
             Console.WriteLine($"{pozdrav} {nameOsloveni}!");
         }
         
+        /// <summary>
+        /// Metoda vrací zadané celé číslo vynásobené 2 a navýšené o  hodnotu 10
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns></returns>
         static int MyMath(int x)
             {
                 return ((x * 2) + 10);
