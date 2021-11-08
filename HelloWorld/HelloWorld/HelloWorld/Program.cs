@@ -136,7 +136,7 @@ namespace HelloWorld
 
                 try
                 {
-                    File.AppendAllText("users.txt", $"{jmeno};{vek}");
+                    File.AppendAllText("users.txt", $"{jmeno};{vek}"+Environment.NewLine);
                 }
                 catch (Exception e)
                 {
