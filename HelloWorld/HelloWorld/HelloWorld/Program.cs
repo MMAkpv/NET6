@@ -12,12 +12,35 @@ namespace HelloWorld
             Console.Write("Jak se jmenuješ: ");
             string name = Console.ReadLine();
 
+            Hello(name);
+
+            Console.ReadLine();
+
+        }
+
+        static void Hello(string name)
+        {
+            string nameOsloveni = "";
+
+            if (name == "Mirek")
+            {
+                nameOsloveni = "Mirku";
+            }
+            else if (name == "Karel")
+            {
+                nameOsloveni = "Karle";
+            }
+            else
+            {
+                nameOsloveni = name;
+            }
+
             //string pozdrav = "Ahoj " + name;
             string pozdrav = "Ahoj"; //konci strednikem, jeden prikaz
 
-            Console.WriteLine($"{pozdrav} {name}!");
+            Console.WriteLine($"{pozdrav} {nameOsloveni}!");
 
-            Console.ReadLine();
+
 
         }
     }
