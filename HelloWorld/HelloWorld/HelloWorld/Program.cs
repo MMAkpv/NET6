@@ -14,6 +14,12 @@ namespace HelloWorld
 
             Hello(name);
 
+            //vytvorte metodu, ktera vstup vynasobi  2 a pricte hodnotu 10
+
+            Console.Write("Zadej hodnotu: ");
+            int x = int.Parse(Console.ReadLine());
+            Console.WriteLine(MyMath(x));
+
             Console.ReadLine();
 
         }
@@ -39,9 +45,13 @@ namespace HelloWorld
             string pozdrav = "Ahoj"; //konci strednikem, jeden prikaz
 
             Console.WriteLine($"{pozdrav} {nameOsloveni}!");
-
-
-
         }
+        
+        static int MyMath(int x)
+            {
+                return ((x * 2) + 10);
+            }
+
+
     }
 }
