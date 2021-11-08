@@ -75,8 +75,12 @@ namespace HelloWorld
                     if (input != "x") //x beru jako standardní zavření a neloguju jej, ostatní nekonvertovatelné vstupy jako chyby...
                     {
                         File.AppendAllText("errorlog.txt",e.Message + Environment.NewLine);
+                        Console.WriteLine("Chyba, podívej se do errorlogu!");
                     }
-                    break;
+                    else
+                    {
+                        break;
+                    }
                     
                 }
             }
