@@ -62,6 +62,7 @@ namespace HelloWorld
 
             //s pomocí try-catch
 
+            /*
             while (true)
             {
                 Console.Write("Zadej teplotu ve °F: ");
@@ -83,8 +84,71 @@ namespace HelloWorld
                     }
                     
                 }
+            
+            }
+            */
+
+            //práce se stringy
+
+            /*
+            string name = "MirEk Malaga";
+
+            Console.WriteLine(string.IsNullOrEmpty(name)); //zjišťuji, jestli je null nebo prázdný string
+
+            if(!string.IsNullOrEmpty(name)) //když není null, nebo prázdný string
+            {
+                Console.WriteLine(name);
+            }
+            else
+            {
+                Console.WriteLine("nemá jméno");
             }
 
+            Console.WriteLine(name.Length); //délka hodnoty v proměnné name
+            Console.WriteLine(name.Trim()); //odstranění prázdných znaků na začátku a konci stringu, dělá nový string, nepřepisuje původní :)
+
+            string[] items = name.Split(" "); //rozdělím si string do pole
+            Console.WriteLine($"jméno: {items[0]}");
+            Console.WriteLine($"příjmení: {items[1]}");
+
+            Console.WriteLine(name.Contains("Mirek")); //hledám podřetězec v řetězci, vrací true/false
+            Console.WriteLine(name.Contains("miRek", StringComparison.OrdinalIgnoreCase)); //to samé jako předchozí bez ohledu na velikost písmen, vrací true/false
+            Console.WriteLine(name.ToLower()); //převedu text na malá písmena
+
+            Console.WriteLine(name.Substring(5, 6)); //substring :), od pozice, počet znaků - ne do pozice! čti nápovědu :D
+
+            */
+
+            //úkol - načíst jméno a věk, uložit do souboru txt jmeno;věk, vždy nový řádek
+
+            while (true)
+            {
+                Console.Write("Zadej jméno, x ukončí app: ");
+                string jmeno = Console.ReadLine();
+
+                if (jmeno == "x")
+                {
+                    break;
+                }
+
+                Console.Write("Zadej věk: ");
+                string vek = Console.ReadLine();
+
+                try
+                {
+                    File.AppendAllText("users.txt", $"{jmeno};{vek}");
+                }
+                catch (Exception e)
+                {
+                        File.AppendAllText("errorlog.txt", e.Message + Environment.NewLine);
+                        Console.WriteLine("Chyba, podívej se do errorlogu!");
+                }
+
+
+            }
+
+
+                Console.ReadKey();
 
         }
 
