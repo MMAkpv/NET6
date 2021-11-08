@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace HelloWorld
 {
@@ -45,7 +46,7 @@ namespace HelloWorld
             */
 
             // zadání - dokud jsou zadávána čísla tak se převádí teplota z °F na °C, upraveno dokud zadávám čísla...
-
+            /*
             while (true)
             {
                 Console.Write("Zadej teplotu ve °F: ");
@@ -55,6 +56,28 @@ namespace HelloWorld
                 else
                 {
                     break;
+                }
+            }
+            */
+
+            //s pomocí try-catch
+
+            while (true)
+            {
+                Console.Write("Zadej teplotu ve °F: ");
+                string input = Console.ReadLine();
+                try
+                {
+                    Console.WriteLine($"To je {TempConversion(double.Parse(input))}°C");
+                }
+                catch (Exception e)
+                {
+                    if (input != "x") //x beru jako standardní zavření a neloguju jej, ostatní nekonvertovatelné vstupy jako chyby...
+                    {
+                        File.AppendAllText("errorlog.txt",e.Message + Environment.NewLine);
+                    }
+                    break;
+                    
                 }
             }
 
