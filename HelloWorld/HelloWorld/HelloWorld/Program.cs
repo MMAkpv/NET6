@@ -6,18 +6,18 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
+            //pozdrav podle zadaného jména;
             //string name = "Mirek"; //deklaruji promennou typu retezec, priradil jsem text "Mirek"
-            
-            Console.Write("Jak se jmenuješ: ");
-            string name = Console.ReadLine();
 
-            Hello(name);
+            //Console.Write("Jak se jmenuješ: ");
+            //string name = Console.ReadLine();
+
+            //Hello(name);
 
             //vytvorte metodu, ktera vstup vynasobi  2 a pricte hodnotu 10
 
             Console.Write("Zadej hodnotu: ");
-            int x = int.Parse(Console.ReadLine());
+            int x = int.Parse(Console.ReadLine()); //vstup x parsuju na typ int
             Console.WriteLine(MyMath(x));
 
             Console.ReadLine();
