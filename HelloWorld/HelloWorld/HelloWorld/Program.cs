@@ -23,17 +23,52 @@ namespace HelloWorld
             int x = int.Parse(Console.ReadLine()); //vstup x parsuju na typ int
             Console.WriteLine(MyMath(x));
             */
-            
+
 
             //převod teploty ze °F na °C
 
+            /*
+            ConvertFtoCAndPrint();
+            */
+
+
+            //while
+            /*
+            int i = 0;
+            while (i < 10)
+            {
+                Console.WriteLine(i);
+                i += 1;
+            }
+
+            Console.ReadLine();
+            */
+
+            // zadání - dokud jsou zadávána čísla tak se převádí teplota z °F na °C, upraveno dokud zadávám čísla...
+
+            while (true)
+            {
+                Console.Write("Zadej teplotu ve °F: ");
+                string input = Console.ReadLine();
+                if (double.TryParse(input, out  double inputDouble))
+                    Console.WriteLine($"To je {TempConversion(inputDouble)}°C");
+                else
+                {
+                    break;
+                }
+            }
+
+
+        }
+
+        /// <summary>
+        /// metoda použije metodu pro převod teplot ze °F na °C a výsledek vytiskne do konzole
+        /// </summary>
+        private static void ConvertFtoCAndPrint()
+        {
             Console.Write("Zadej teplotu ve °F: ");
             double fTemp = double.Parse(Console.ReadLine());
             Console.WriteLine($"{fTemp}°F je {TempConversion(fTemp)}°C");
-
-            Console.ReadLine();
-        
-        
         }
 
         static void Hello(string name)
