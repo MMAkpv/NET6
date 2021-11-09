@@ -12,6 +12,20 @@ namespace ObjektoveProgramovani.Model
         public string PlateNumber { get; set; }
         public double TotalKm { get; set; }
 
+        public Car() { }
+
+        public Car(string color, string plateNumber, double totalKm)
+        {
+            Color = color;
+            PlateNumber = plateNumber;
+            TotalKm = totalKm;
+        }
+
+        public override string ToString()
+        {
+            return $"Auto barvy {Color}, značky {PlateNumber} s {TotalKm} kilometry.";
+        }
+
         public void AddTripKm(double tripLenght)
         {
             TotalKm += tripLenght;

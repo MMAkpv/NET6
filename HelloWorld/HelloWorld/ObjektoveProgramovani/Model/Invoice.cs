@@ -8,7 +8,7 @@ namespace ObjektoveProgramovani.Model
 {
     class Invoice
     {
-        public string Payer { get; set; }
+        public string Customer { get; set; }
         public string ItemInvoice { get; set; }
         public int Price { get; set;
         }

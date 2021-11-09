@@ -16,7 +16,7 @@ namespace ObjektoveProgramovani
             p1.FirstName = "John";
             p1.LastName = "Doe";
             p1.DateOfBirth = new DateTime(1964, 8, 5); //DateTime.Parse("9.1.1986");
-            
+
 
 
             Person p2 = new Person();
@@ -50,14 +50,36 @@ namespace ObjektoveProgramovani
             #endregion
 
             //využití třídy Inovice
-
+            #region Reseni
+            /*
             Invoice invoice = new Invoice();
 
             invoice.ItemInvoice = "šroub";
-            invoice.Payer = "Společnost s. r. o.";
+            invoice.Customer = "Společnost s. r. o.";
             invoice.Price = 9999;
 
             Console.WriteLine($"dodán {invoice.ItemInvoice} firmě {invoice.Payer} za {invoice.Price}");
+            */
+            #endregion
+
+            //využití třídy Person s konstruktorem
+            #region Reseni
+            /*
+            Person p = new Person("Zdeněk", "Ulrych");
+
+            Console.WriteLine($"{p.FirstName} {p.LastName}");
+
+            Person pp = new Person("Mirek", "Malaga", new DateTime(1986, 1, 9));
+            Console.WriteLine($"{pp.FirstName} {pp.LastName}, narozený {pp.DateOfBirth.ToShortDateString()}");
+
+            Console.WriteLine(pp); //využívám přetížení na ToString
+            */
+            #endregion
+
+            //využití třídy Car s konstruktorem
+
+            Car myCar = new Car("stříbrná", "XX 666", 28754);
+            Console.WriteLine(myCar);
 
             Console.ReadLine();
         }
