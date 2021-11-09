@@ -30,6 +30,9 @@ namespace ObjektoveProgramovani
             */
             #endregion
 
+            //využití třídy Car
+            #region Reseni
+            /*
             Car skoda = new Car();
 
             skoda.Color = "Red";
@@ -43,6 +46,18 @@ namespace ObjektoveProgramovani
             skoda.ResetTotalKm();
 
             Console.WriteLine($"Mám auto barvy {skoda.Color}, značka {skoda.PlateNumber}, se {skoda.TotalKm} kilometry.");
+            */
+            #endregion
+
+            //využití třídy Inovice
+
+            Invoice invoice = new Invoice();
+
+            invoice.ItemInvoice = "šroub";
+            invoice.Payer = "Společnost s. r. o.";
+            invoice.Price = 9999;
+
+            Console.WriteLine($"dodán {invoice.ItemInvoice} firmě {invoice.Payer} za {invoice.Price}");
 
             Console.ReadLine();
         }
