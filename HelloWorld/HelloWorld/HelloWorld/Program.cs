@@ -213,7 +213,7 @@ namespace HelloWorld
             //(string, int) vysledek = FindOld("lide.txt");
             //Console.WriteLine($"Nejstarší je {vysledek.Item1}, je mu {vysledek.Item2} let.");
             #endregion
-
+            
 
             Console.ReadKey();
 
@@ -332,6 +332,11 @@ namespace HelloWorld
             return name.EndsWith("ová");
         }
 
+        /// <summary>
+        /// načte soubor a v něm najde nejstaršího človíčka 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns>nejstarší člověk ve formátu (string, int)</returns>
         static (string, int) FindOld(string fileName)
         {
             string[] fileData = File.ReadAllLines(fileName);
