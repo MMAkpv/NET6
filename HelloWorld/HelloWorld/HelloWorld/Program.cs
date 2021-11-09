@@ -7,9 +7,11 @@ namespace HelloWorld
     {
         static void Main(string[] args)
         {
+
+
             //pozdrav podle zadaného jména;
             //string name = "Mirek"; //deklaruji promennou typu retezec, priradil jsem text "Mirek"
-
+            #region Reseni
             /*
             Console.Write("Jak se jmenuješ: ");
             string name = Console.ReadLine();
@@ -24,10 +26,10 @@ namespace HelloWorld
             int x = int.Parse(Console.ReadLine()); //vstup x parsuju na typ int
             Console.WriteLine(MyMath(x));
             */
-
+            #endregion
 
             //převod teploty ze °F na °C
-
+            #region Reseni
             /*
             ConvertFtoCAndPrint();
             */
@@ -44,8 +46,9 @@ namespace HelloWorld
 
             Console.ReadLine();
             */
-
+            #endregion
             // zadání - dokud jsou zadávána čísla tak se převádí teplota z °F na °C, upraveno dokud zadávám čísla...
+            #region Reseni
             /*
             while (true)
             {
@@ -59,9 +62,9 @@ namespace HelloWorld
                 }
             }
             */
-
+            #endregion
             //s pomocí try-catch
-
+            #region Reseni
             /*
             while (true)
             {
@@ -87,9 +90,10 @@ namespace HelloWorld
             
             }
             */
+            #endregion
 
             //práce se stringy
-
+            #region Stringy
             /*
             string name = "MirEk Malaga";
 
@@ -118,9 +122,9 @@ namespace HelloWorld
             Console.WriteLine(name.Substring(5, 6)); //substring :), od pozice, počet znaků - ne do pozice! čti nápovědu :D
 
             */
-
+            #endregion
             //úkol - načíst jméno a věk, uložit do souboru txt jmeno;věk, vždy nový řádek
-
+            #region Reseni
             /*
             while (true)
             {
@@ -148,9 +152,9 @@ namespace HelloWorld
 
             }
             */
-
+            #endregion
             //Datum a čas
-
+            #region DatumCas
             /*
             DateTime date = new DateTime(2020, 12, 22, 19, 0, 0);
             Console.WriteLine(date);
@@ -165,25 +169,28 @@ namespace HelloWorld
             Console.WriteLine(date.ToShortDateString());  //datum do zkráceného formátu, řetězec
             
              */
-
+            #endregion
             // úkol zjistit zda je uživateli 18 a více let
+            #region Reseni
+            //Console.Write("Zadej datum oddělené tečkami: ");
+            //DateTime datum = DateTime.Parse(Console.ReadLine());
 
-            Console.WriteLine("Zadej datum oddělené tečkami: ");
-            DateTime datum = DateTime.Parse(Console.ReadLine());
-
-            TimeSpan ts = DateTime.Now - datum;
+            //TimeSpan ts = DateTime.Now - datum;
             
 
 
-            if (ts.TotalDays / 365 >= 18)
-            {
-                Console.WriteLine("Jsi dospělý");
-            }
-            else
-            {
-                Console.WriteLine("Nejsi dospělý");
-            }
+            //if (ts.TotalDays / 365 >= 18)
+            //{
+            //    Console.WriteLine("Jsi dospělý");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Nejsi dospělý");
+            //}
+            #endregion
 
+            // úkol napsat a použít metodu, která spočítá věk
+            Console.WriteLine($"Je ti {AgeSolver()} let");
 
 
             Console.ReadKey();
@@ -242,6 +249,22 @@ namespace HelloWorld
         {
             double cTemp = (fTemp - 32) / 1.8;
             return cTemp;
+        }
+
+        /// <summary>
+        /// Metoda spočítá a vrátí věk k dnešnímu datu - věk jako ořezaný int
+        /// </summary>
+        /// <param name="age"></param>
+        /// <returns></returns>
+        static int AgeSolver()
+        {
+            Console.Write("Zadej datum oddělené tečkami: ");
+            DateTime datum = DateTime.Parse(Console.ReadLine());
+
+            TimeSpan ts = DateTime.Now - datum;
+
+            return ((int)(ts.TotalDays / 365));
+
         }
 
     }
