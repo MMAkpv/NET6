@@ -125,9 +125,10 @@ namespace ObjektoveProgramovani
 
             Console.WriteLine($"načteno {people.Count} lidí");
 
+            //vypsání pouze křestních jmen, uděláno složitě abych si něco zkusil... jinak by šlo použít join nad kolekcí naplněné jmény...
             foreach (var item in people)
             {
-                Console.Write($" {item.FirstName}{((people.IndexOf(item) == (people.Count -1)) ? (null) : ",")}");
+                Console.Write($"{item.FirstName}{((people.IndexOf(item) == (people.Count -1)) ? (null) : ", ")}");
             }
 
             Console.ReadLine();
