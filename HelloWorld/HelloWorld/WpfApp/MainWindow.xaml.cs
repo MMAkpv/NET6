@@ -29,5 +29,10 @@ namespace WpfApp
         {
             txbInfo.Text = "Ahoj " + txtBox.Text;
         }
+
+        private void txtBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtBox.Text = string.Empty;
+        }
     }
 }

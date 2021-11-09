@@ -18,9 +18,9 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>-->
         
-        <Button x:Name="btnHello" Grid.Row="2" Content="Button" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Center" FontSize="22" Click="btnHello_Click" />
-        <TextBlock x:Name="txbInfo" Grid.Row="0" Padding="10,10,10,10" Text="Pozdrav" FontSize="40" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Stretch"  Background="#FF3C7018" VerticalAlignment="Center" Margin="10,0,10,0" UseLayoutRounding="False" />
-        <TextBox x:Name="txtBox" Grid.Row="1" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,10,10,10" FontSize="24" TextAlignment="Center"/>
+        <Button x:Name="btnHello" Grid.Row="2" Content="Button" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Center" FontSize="22" Click="btnHello_Click"/>
+        <TextBlock x:Name="txbInfo"  Grid.Row="0" Padding="10,10,10,10" Text="Pozdrav" FontSize="40" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Stretch"  Background="#FF3C7018" VerticalAlignment="Center" Margin="10,0,10,0"/>
+        <TextBox x:Name="txtBox" Grid.Row="1" Text="Zadej jméno v 5. pádě" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,10,10,10" FontSize="24" TextAlignment="Center" GotFocus="txtBox_GotFocus"/>
 
     </Grid>
 </Window>
