@@ -11,22 +11,29 @@ namespace ObjektoveProgramovani.Model
         public string FirstName { get; set; } //property, tedy vlastnost
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
+        public Address HomeAddress { get; set; }
+
+
 
         //konstruktory
         public Person(string firstName, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;
+            HomeAddress = new Address();
         }
 
         public Person() //prázdný konstruktor, abych mohl zadávat i původní možností
-        { }
+        { 
+            HomeAddress = new Address();
+        }
 
         public Person(string firstName, string lastName, DateTime dateOfBirth) //konstruktor i s datumem narození
         {
             FirstName = firstName;
             LastName = lastName;
             DateOfBirth = dateOfBirth;
+            HomeAddress = new Address();
         }
 
         //zastiňuji něco z rodiče, konkrétně mětodu ToString, override je proto, že původní zastíním 
@@ -37,7 +44,7 @@ namespace ObjektoveProgramovani.Model
 
 
  
-
+        //metody
         public int Age()
         {
             DateTime today = DateTime.Today;

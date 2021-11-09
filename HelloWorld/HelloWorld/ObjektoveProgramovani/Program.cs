@@ -77,9 +77,30 @@ namespace ObjektoveProgramovani
             #endregion
 
             //využití třídy Car s konstruktorem
+            #region Reseni
 
-            Car myCar = new Car("stříbrná", "XX 666", 28754);
-            Console.WriteLine(myCar);
+            //Car myCar = new Car("stříbrná", "XX 666", 28754);
+            //Console.WriteLine(myCar);
+
+            //var MyCar2 = new Car("modrá", "XY 123", 12548);
+            //Console.WriteLine(MyCar2);
+
+            #endregion
+
+            //využití třídy Person s další třídou Address
+
+            var p = new Person("Mirek", "Malaga", new DateTime(1986, 9, 1));
+            Console.WriteLine(p);
+
+            //p.HomeAddress = new Address("Plzeň", "Tachovská"); //musím "inicializovat" objekt adresy pro proměnnou p.
+            p.HomeAddress = new Address("Plzeň", "Tachovská");
+            //p.HomeAddress.City = "Plzeň";
+            //p.HomeAddress.Street = "Tachovská";
+
+            Console.WriteLine($"{p.HomeAddress.Street}, {p.HomeAddress.City}");
+
+
+
 
             Console.ReadLine();
         }
