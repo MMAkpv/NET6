@@ -148,8 +148,6 @@ namespace HelloWorld
                         File.AppendAllText("errorlog.txt", e.Message + Environment.NewLine);
                         Console.WriteLine("Chyba, podívej se do errorlogu!");
                 }
-
-
             }
             */
             #endregion
@@ -176,7 +174,7 @@ namespace HelloWorld
             //DateTime datum = DateTime.Parse(Console.ReadLine());
 
             //TimeSpan ts = DateTime.Now - datum;
-            
+
 
 
             //if (ts.TotalDays / 365 >= 18)
@@ -190,7 +188,30 @@ namespace HelloWorld
             #endregion
 
             // úkol napsat a použít metodu, která spočítá věk
-            Console.WriteLine($"Je ti {AgeSolver()} let");
+            #region Reseni
+            //Console.WriteLine($"Je ti {AgeSolver()} let");
+            #endregion
+
+            //úkol napsat a použít metodu, pro spočítání věku
+            #region Reseni
+            /*
+            Console.Write("Zadej a: ");
+            int numA = int.Parse(Console.ReadLine());
+            Console.Write("Zadej b: ");
+            int numB = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Větší číslo je {NumComparer(numA, numB)}");
+            */
+            #endregion
+
+            //úkol napsat a použít metodu, která ověří, jestli jméno končí na ová
+            #region Reseni
+            //Console.WriteLine(IsEndingOva("Frčková"));
+            #endregion
+
+            //úkol ze souboru načíst lidi a zjistit nejstaršího a vypsat ho
+            #region Reseni
+            //Console.WriteLine(FindOld("lide.txt"));
+            #endregion
 
 
             Console.ReadKey();
@@ -254,18 +275,82 @@ namespace HelloWorld
         /// <summary>
         /// Metoda spočítá a vrátí věk k dnešnímu datu - věk jako ořezaný int
         /// </summary>
-        /// <param name="age"></param>
-        /// <returns></returns>
+        /// <param></param>
+        /// <returns>vek as int</returns>
         static int AgeSolver()
         {
             Console.Write("Zadej datum oddělené tečkami: ");
             DateTime datum = DateTime.Parse(Console.ReadLine());
 
-            TimeSpan ts = DateTime.Now - datum;
+            TimeSpan ts = DateTime.Today - datum;
 
             return ((int)(ts.TotalDays / 365));
 
         }
+
+        /// <summary>
+        /// Stejné jako předchozí, jen obecněji, lze využít např. ve WPF, protože načtení narození udělám mimo
+        /// </summary>
+        /// <param name="dateOfBirth"></param>
+        /// <returns>vek as int</returns>
+        static int AgeSolver(DateTime dateOfBirth)
+        {
+            TimeSpan ts = DateTime.Today - dateOfBirth;
+            return ((int)(ts.TotalDays / 365));
+        }
+
+        /// <summary>
+        /// Porovná dvě čísla a vrací to větší
+        /// </summary>
+        /// <param name="numA"></param>
+        /// <param name="numB"></param>
+        /// <returns>returns higher number</returns>
+        static int NumComparer(int numA, int numB)
+        {
+
+            //return Math.Max(numA, numB); ///funkcí Max
+            //return x > y ? x : y; //ternárním operátorem
+
+            if (numA >= numB)
+            {
+                return numA;
+            }
+            else
+            {
+                return numB;
+            }
+        }
+
+        /// <summary>
+        /// vrací boolean hodnotu, zda zadané příjmení končí na "ová"
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns>vrací true/false</returns>
+        static bool IsEndingOva(string name)
+        {
+            return name.EndsWith("ová");
+        }
+
+        static (string, int) FindOld(string fileName)
+        {
+            string[] fileData = File.ReadAllLines(fileName);
+
+            string[] nejstarsi = fileData[0].Split(";");
+
+            foreach (var item in fileData)
+            {
+                if (int.Parse(item.Split(";")[1]) > int.Parse(nejstarsi[1]))
+                {
+                    nejstarsi[0] = item.Split(";")[0];
+                    nejstarsi[1] = item.Split(";")[1];
+                }
+            }
+
+            return (nejstarsi[0], int.Parse(nejstarsi[1]));
+            
+
+        }
+
 
     }
 }
