@@ -127,7 +127,7 @@ namespace ObjektoveProgramovani
 
             foreach (var item in people)
             {
-                Console.Write(item.FirstName +", ");
+                Console.Write($" {item.FirstName}{((people.IndexOf(item) == (people.Count -1)) ? (null) : ",")}");
             }
 
             Console.ReadLine();
