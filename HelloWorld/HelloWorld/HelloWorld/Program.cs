@@ -210,7 +210,8 @@ namespace HelloWorld
 
             //úkol ze souboru načíst lidi a zjistit nejstaršího a vypsat ho
             #region Reseni
-            //Console.WriteLine(FindOld("lide.txt"));
+            //(string, int) vysledek = FindOld("lide.txt");
+            //Console.WriteLine($"Nejstarší je {vysledek.Item1}, je mu {vysledek.Item2} let.");
             #endregion
 
 
