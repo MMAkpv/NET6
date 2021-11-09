@@ -11,7 +11,7 @@ namespace ObjektoveProgramovani.Model
         public string FirstName { get; set; } //property, tedy vlastnost
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public Address HomeAddress { get; set; }
+        public Address HomeAddress { get; set; } //= new Address(); //abych nemusel v každém konstruktoru, jako to mám nyní
 
 
 

@@ -1,5 +1,7 @@
-﻿using ObjektoveProgramovani.Model;
+﻿using ObjektoveProgramovani.Data;
+using ObjektoveProgramovani.Model;
 using System;
+using System.Collections.Generic;
 
 namespace ObjektoveProgramovani
 {
@@ -88,19 +90,45 @@ namespace ObjektoveProgramovani
             #endregion
 
             //využití třídy Person s další třídou Address
-
+            #region Reseni
+            /*
             var p = new Person("Mirek", "Malaga", new DateTime(1986, 9, 1));
             Console.WriteLine(p);
 
             //p.HomeAddress = new Address("Plzeň", "Tachovská"); //musím "inicializovat" objekt adresy pro proměnnou p.
-            p.HomeAddress = new Address("Plzeň", "Tachovská");
+            p.HomeAddress = new Address( "Plzeň", "Tachovská");
             //p.HomeAddress.City = "Plzeň";
             //p.HomeAddress.Street = "Tachovská";
 
             Console.WriteLine($"{p.HomeAddress.Street}, {p.HomeAddress.City}");
+            */
+            #endregion
 
+            //uložení objektů do souboru, oddělovat středníkem, soubor firstname;lastname;dob;city;street
+            #region Reseni
+            /*
+            var p = new Person("Petr", "Hořejší", new DateTime(1982, 8, 4));
+            p.HomeAddress.City = "Plzeň";
+            p.HomeAddress.Street = "Lidice";
 
+            //abych měl 10 záznamů pro načítání
+            for (int i = 0; i < 10; i++)
+            {
+                PersonData.SavePerson(p);
+            }
+            */
+            #endregion
 
+            //načtení dat do kolekce - těch z předchozího cvičení
+
+            var people = PersonData.LoadPeople();
+
+            Console.WriteLine($"načteno {people.Count} lidí");
+
+            foreach (var item in people)
+            {
+                Console.WriteLine(item);
+            }
 
             Console.ReadLine();
         }
