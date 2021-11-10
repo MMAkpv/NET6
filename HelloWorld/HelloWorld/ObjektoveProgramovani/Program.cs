@@ -158,6 +158,8 @@ namespace ObjektoveProgramovani
             Console.WriteLine(Week.DayOfWeekWithSwitch(5));
             Console.WriteLine(Week.DayOfWeekWithArray(2));
 
+            Console.WriteLine(Week.DayNumberFromName("PonděLí"));
+
 
 
 

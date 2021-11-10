@@ -10,7 +10,7 @@ namespace ObjektoveProgramovani.Model
     {
         public static string DayOfWeekWithSwitch(int number)
         {
-            switch (number)
+            switch (number) //pro if podobně :)
             {
                 case 1:
                     return ("Pondělí");
@@ -34,7 +34,7 @@ namespace ObjektoveProgramovani.Model
         public static string DayOfWeekWithArray(int number)
         {
             number -= 1;
-            string[] days = new string[] { "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle" };
+            string[] days = new string[] { "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle" }; //pro list by to bylo stejné :)
             if (number >= 1 & number <= 7)
             {
                 return (days[number]);
@@ -43,6 +43,23 @@ namespace ObjektoveProgramovani.Model
             {
                 return ("špatná hodnota");
             }
+        }
+
+        public static int? DayNumberFromName(string day)
+        {
+            day = day.ToLower();
+            string[] days = new string[] { "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle" }; //pro list by to bylo stejné :)
+            
+            if (days.Contains(day))
+            {
+                return (Array.IndexOf(days,day)+1);
+            }
+            else
+            {
+                Console.WriteLine("špatná hodnota");
+                return null;
+            }
+
         }
     }
 }
