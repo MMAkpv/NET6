@@ -154,12 +154,14 @@ namespace ObjektoveProgramovani
             #endregion
 
             //ukol - metoda, ktera vrati nazev dne podle zadaneho cisla
-
+            #region Reseni
+            /*
             Console.WriteLine(Week.DayOfWeekWithSwitch(5));
             Console.WriteLine(Week.DayOfWeekWithArray(2));
 
             Console.WriteLine(Week.DayNumberFromName("PonděLí"));
-
+            */
+            #endregion
 
 
 
