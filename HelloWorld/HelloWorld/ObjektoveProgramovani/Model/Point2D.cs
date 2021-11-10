@@ -22,6 +22,11 @@ namespace ObjektoveProgramovani.Model
             return X * Y;
         }
 
+        public (int, int) Add2Points(int x1, int y2)
+        {
+            return (X + x1, Y + y2);
+        }
+
         public override string ToString()
         {
             return $"Souřadnice bodu jsou [{X},{Y}], plocha od [0,0] k zadanému bodu je {Area()} jednotek^2";

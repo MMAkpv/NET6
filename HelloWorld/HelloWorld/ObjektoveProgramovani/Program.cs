@@ -120,7 +120,7 @@ namespace ObjektoveProgramovani
             #endregion
 
             //načtení dat do kolekce - těch z předchozího cvičení
-
+            #region Reseni
             /*
             var people = PersonData.LoadPeople();
 
@@ -132,13 +132,20 @@ namespace ObjektoveProgramovani
                 Console.Write($"{item.FirstName}{((people.IndexOf(item) == (people.Count -1)) ? (null) : ", ")}");
             }
             */
+            #endregion
 
             // úkol - třída Point2D, po zadání x,y spočte plochu od [0,0], nestaticky s pěknou textovou reprezentací
-
+            #region Reseni
+            
             Point2D bod1 = new Point2D(10, 5);
             Point2D bod2 = new Point2D(3, 6);
             Console.WriteLine(bod1);
             Console.WriteLine(bod2);
+
+            Console.WriteLine(bod1.Add2Points(1, 1));
+            
+            #endregion
+
 
 
             Console.ReadLine();
