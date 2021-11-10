@@ -49,17 +49,33 @@ namespace ObjektoveProgramovani.Model
         {
             day = day.ToLower();
             string[] days = new string[] { "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle" }; //pro list by to bylo stejné :)
-            
+
             if (days.Contains(day))
             {
-                return (Array.IndexOf(days,day)+1);
+                return (Array.IndexOf(days, day) + 1);
             }
             else
             {
                 Console.WriteLine("špatná hodnota");
                 return null;
             }
-
         }
+
+
+            public static int? DayNumberFromNameWithList(string day)
+            {
+                day = day.ToLower();
+                var days = new List<string> { "pondělí", "úterý", "středa", "čtvrtek", "pátek", "sobota", "neděle" }; //pro list by to bylo stejné :)
+
+                if (days.Contains(day))
+                {
+                    return (days.IndexOf(day) + 1);
+                }
+                else
+                {
+                    Console.WriteLine("špatná hodnota");
+                    return null;
+                }
+            }
     }
 }
