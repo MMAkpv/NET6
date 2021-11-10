@@ -70,7 +70,6 @@ namespace Linq
             */
             #endregion
 
-
             //Samostatná práce
             #region Zadani_reseni
             /*

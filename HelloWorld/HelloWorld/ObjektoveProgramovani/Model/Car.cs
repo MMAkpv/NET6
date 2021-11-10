@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjektoveProgramovani.Model
 {
-    class Car
+    public class Car
     {
         public string Color { get; set; }
         public string PlateNumber { get; set; }

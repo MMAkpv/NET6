@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ObjektoveProgramovani.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,19 @@ namespace WpfApp
         private void txtBox_GotFocus(object sender, RoutedEventArgs e)
         {
             txtBox.Text = string.Empty;
+        }
+
+        private void btnPersonDetail_Click(object sender, RoutedEventArgs e)
+        {
+            Person p = new Person();
+            p.FirstName = "Alice";
+            p.LastName = "Smith";
+            p.DateOfBirth = new DateTime(1981, 8, 11);
+
+
+
+            PersonDetail pdWindow = new PersonDetail(p);
+            pdWindow.Show();
         }
     }
 }

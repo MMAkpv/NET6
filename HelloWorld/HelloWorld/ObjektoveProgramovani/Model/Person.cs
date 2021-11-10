@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjektoveProgramovani.Model
 {
-    class Person
+    public class Person
     {
         public string FirstName { get; set; } //property, tedy vlastnost
         public string LastName { get; set; }
