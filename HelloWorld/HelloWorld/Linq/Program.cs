@@ -130,17 +130,22 @@ namespace Linq
             #endregion
 
             //samostatné úkoly
-
+            #region Reseni
             var numbers = new[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
             var strings = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
 
             /// 1. vypište čísla v poli numbers jako slova
-
             var sortedNumbers = numbers.Select(n => strings[n]);
-
             Console.WriteLine(string.Join(", ", sortedNumbers));
 
+            /// 2. pomocí selectu vytvořte nové pole, kde jsou všechna slova uppercase
+            var stringsUpper = strings.Select(s => s.ToUpper());
+            Console.WriteLine(string.Join(" ", stringsUpper));
 
+            /// 3. udělat kolekci, která bude mít vždy velkou a malou verzi - "zero ZERO"...
+            var result = strings.Select(s => $"{s} {s.ToUpper()}");
+            Console.WriteLine(string.Join(", ", result));
+            #endregion
 
 
             Console.ReadLine();
