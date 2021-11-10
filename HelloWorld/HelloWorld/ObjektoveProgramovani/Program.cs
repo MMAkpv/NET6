@@ -142,7 +142,7 @@ namespace ObjektoveProgramovani
             Console.WriteLine(bod1);
             Console.WriteLine(bod2);
 
-            Console.WriteLine(bod1.Add2Points(1, 1));
+            Console.WriteLine(bod1.Add2Points(bod2));
             
             #endregion
 

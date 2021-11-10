@@ -22,9 +22,10 @@ namespace ObjektoveProgramovani.Model
             return X * Y;
         }
 
-        public (int, int) Add2Points(int x1, int y2)
+        public Point2D Add2Points(Point2D point)
         {
-            return (X + x1, Y + y2);
+            Point2D soucetBodu = new Point2D(X + point.X, Y + point.Y);
+            return soucetBodu;
         }
 
         public override string ToString()
