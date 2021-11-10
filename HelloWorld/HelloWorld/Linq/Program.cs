@@ -113,7 +113,7 @@ namespace Linq
 
             //Select - transformace
             #region Select
-
+            /*
             int[] numbers = { -2079, -498, 2920, -1856, 332, -2549, -674, -120, -992, 2782, 320, -524, 135, 952, 1868, 2509, -230, -138, -904, -480 };
 
             //var result = numbers.Select(number => number + 10);
@@ -126,8 +126,21 @@ namespace Linq
             //úkol - vypsat absolutní hodnoty pro numbers
             var result = numbers.Select(n => Math.Abs(n));
             Console.WriteLine(string.Join(" ", result));
-
+            */
             #endregion
+
+            //samostatné úkoly
+
+            var numbers = new[] { 5, 4, 1, 3, 9, 8, 6, 7, 2, 0 };
+            var strings = new[] { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+
+            /// 1. vypište čísla v poli numbers jako slova
+
+            var sortedNumbers = numbers.Select(n => strings[n]);
+
+            Console.WriteLine(string.Join(", ", sortedNumbers));
+
+
 
 
             Console.ReadLine();
