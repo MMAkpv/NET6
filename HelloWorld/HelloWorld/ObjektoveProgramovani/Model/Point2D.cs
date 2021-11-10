@@ -17,17 +17,41 @@ namespace ObjektoveProgramovani.Model
             Y = y;
         }
 
+        /// <summary>
+        /// metoda vraci obsah od [0,0] k zadanemu bodu
+        /// </summary>
+        /// <returns></returns>
         public int Area()
         {
             return X * Y;
         }
 
-        public Point2D Add2Points(Point2D point)
+        /// <summary>
+        /// metoda k zadanému bodu přičte druhý bod a výsledek vrátí jako nový bod
+        /// </summary>
+        /// <param name="point"></param>
+        /// <returns>novy bod jako soucet 2 bodu</returns>
+        public Point2D Add2Points(Point2D point) //vzniká nový bod
         {
             Point2D soucetBodu = new Point2D(X + point.X, Y + point.Y);
             return soucetBodu;
         }
 
+
+        /// <summary>
+        /// metoda modifikuje stavajici bod
+        /// </summary>
+        /// <param name="point"></param>
+        public void AddPoint(Point2D point) //nevzniká nový bod
+        {
+            X += point.X;
+            Y += point.Y;
+        }
+
+        /// <summary>
+        /// prepsana metoda ToString(), aby print tiskl vystup podle naseho pozadavku
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"Souřadnice bodu jsou [{X},{Y}], plocha od [0,0] k zadanému bodu je {Area()} jednotek^2";

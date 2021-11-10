@@ -141,9 +141,13 @@ namespace ObjektoveProgramovani
             Point2D bod2 = new Point2D(3, 6);
             Point2D bod3 = bod1.Add2Points(bod2);
 
+
             Console.WriteLine(bod1);
             Console.WriteLine(bod2);
             Console.WriteLine(bod3);
+
+            bod1.AddPoint(bod2); //touto metodou modifikuji stávající bod1
+            Console.WriteLine(bod1);
 
             //Console.WriteLine(bod1.Add2Points(bod2));
             
