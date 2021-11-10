@@ -139,10 +139,13 @@ namespace ObjektoveProgramovani
             
             Point2D bod1 = new Point2D(10, 5);
             Point2D bod2 = new Point2D(3, 6);
+            Point2D bod3 = bod1.Add2Points(bod2);
+
             Console.WriteLine(bod1);
             Console.WriteLine(bod2);
+            Console.WriteLine(bod3);
 
-            Console.WriteLine(bod1.Add2Points(bod2));
+            //Console.WriteLine(bod1.Add2Points(bod2));
             
             #endregion
 
