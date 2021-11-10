@@ -136,7 +136,7 @@ namespace ObjektoveProgramovani
 
             // úkol - třída Point2D, po zadání x,y spočte plochu od [0,0], nestaticky s pěknou textovou reprezentací
             #region Reseni
-            
+            /*
             Point2D bod1 = new Point2D(10, 5);
             Point2D bod2 = new Point2D(3, 6);
             Point2D bod3 = bod1.Add2Points(bod2);
@@ -150,12 +150,21 @@ namespace ObjektoveProgramovani
             Console.WriteLine(bod1);
 
             //Console.WriteLine(bod1.Add2Points(bod2));
-            
+            */
             #endregion
+
+            //ukol - metoda, ktera vrati nazev dne podle zadaneho cisla
+
+            Console.WriteLine(Week.DayOfWeekWithSwitch(5));
+            Console.WriteLine(Week.DayOfWeekWithArray(2));
+
+
 
 
 
             Console.ReadLine();
         }
+
+
     }
 }
