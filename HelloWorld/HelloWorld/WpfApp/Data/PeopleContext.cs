@@ -16,8 +16,13 @@ namespace WpfApp.Data
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Car> Cars { get; set; }
 
-        //konstruktor
+        //konstruktor pro connection string to MSSQL
+        //protected override void OnConfiguring(DbContextOptionsBuilder options)
+        //    => options.UseSqlServer(@$"Server=(localdb)\MSSQLLocalDB; Database=peopledb");
+
+        //konstruktor pro sqlite
         protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options.UseSqlServer($"Server=(localdb); Database=peopledb");
+            => options.UseSqlite(@$"Data Source=peopledb.db");
     }
+
 }

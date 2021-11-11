@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp.Data;
 
 namespace WpfApp
 {
@@ -45,8 +46,26 @@ namespace WpfApp
             pdWindow.Show(); //pdWindow.ShowDialog() //otevření jako dialogové okno, nepůjde jich otevřít víc a dokud ho neukončím, nemůžu se vrátit
         }
 
+        //metoda na jedno použití, aby se db naplnila daty z toho našeho původního texťáku
+        private void LoadInitialDataset()
+        {
+            using (var db = new PeopleContext())
+            {
+                var dir = @"C:\Users\PC\source\repos\CNET1\HelloWorld\HelloWorld\ObjektoveProgramovani\Data\";
+                var filePath = System.IO.Path.Combine(dir, "people.txt");
+                var people = PersonData.LoadPeople(filePath);
+
+                db.People.AddRange(people); //přidáno do db kontextu, tedy paměti počítač
+                db.SaveChanges(); //uložení do DB
+
+
+
+            }
+        }
+
         private void wMain_Loaded(object sender, RoutedEventArgs e)
         {
+            //LoadInitialDataset(); //volal jsem ji jen jednou pro naplnění db
             var dir = @"C:\Users\PC\source\repos\CNET1\HelloWorld\HelloWorld\ObjektoveProgramovani\Data\";
             var filePath = System.IO.Path.Combine(dir, "people.txt");
             var people = PersonData.LoadPeople(filePath);
