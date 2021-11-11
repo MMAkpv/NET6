@@ -93,11 +93,11 @@ namespace WpfApp
 
         private void txtInput_KeyUp(object sender, KeyEventArgs e)
         {
-            var search = txtInput.Text;
+            var search = txtInput.Text.ToLower();
 
             if (!string.IsNullOrEmpty(search))
             {
-                grdPeople.ItemsSource = DataAccess.people.Where(x => x.FirstName.ToLower().Contains(search.ToLower()) || x.LastName.ToLower().Contains(search.ToLower()));
+                grdPeople.ItemsSource = DataAccess.people.Where(x => x.FirstName.ToLower().Contains(search) || x.LastName.ToLower().Contains(search));
             }
             else
             {
@@ -114,6 +114,14 @@ namespace WpfApp
         private void txtInput_GotFocus(object sender, RoutedEventArgs e)
         {
             txtInput.Text = string.Empty;
+        }
+
+        private void grdPeople_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if (e.PropertyName == "Cars")
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

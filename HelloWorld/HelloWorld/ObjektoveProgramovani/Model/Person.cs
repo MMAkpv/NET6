@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,8 +14,10 @@ namespace ObjektoveProgramovani.Model
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Address HomeAddress { get; set; } //= new Address(); //abych nemusel v každém konstruktoru, jako to mám nyní
-
         public List<Car> Cars { get; set; } = new List<Car>();
+
+        [NotMapped] //propety CarsCount ignoruj při tvorbě databáze, nedělej z toho sloupeček...
+        public int CarsCount { get { return Cars.Count(); } } //vrací pouze počet Cars v listu
 
 
         //konstruktory
