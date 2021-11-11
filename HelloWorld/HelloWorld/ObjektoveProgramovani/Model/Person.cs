@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,11 @@ namespace ObjektoveProgramovani.Model
     public class Person
     {
         public int Id { get; set; }
+
+        [MaxLength(200)] //omezení jména na určitý počet znaků
         public string FirstName { get; set; } //property, tedy vlastnost
+        
+        [MaxLength(200)]
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Address HomeAddress { get; set; } //= new Address(); //abych nemusel v každém konstruktoru, jako to mám nyní
