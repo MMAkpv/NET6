@@ -19,6 +19,12 @@ namespace ObjektoveProgramovani.Model
 
         }
 
+        public override string ToString()
+        {
+            return Street + " " + City;
+        }
+
+        public int Id { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
 

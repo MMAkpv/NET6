@@ -8,6 +8,7 @@ namespace ObjektoveProgramovani.Model
 {
     public class Car
     {
+        public int Id { get; set; }
         public string Color { get; set; }
         public string PlateNumber { get; set; }
         public double TotalKm { get; set; }

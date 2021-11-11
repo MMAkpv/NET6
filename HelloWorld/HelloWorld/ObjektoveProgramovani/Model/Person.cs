@@ -8,11 +8,13 @@ namespace ObjektoveProgramovani.Model
 {
     public class Person
     {
+        public int Id { get; set; }
         public string FirstName { get; set; } //property, tedy vlastnost
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public Address HomeAddress { get; set; } //= new Address(); //abych nemusel v každém konstruktoru, jako to mám nyní
 
+        public List<Car> Cars { get; set; } = new List<Car>();
 
 
         //konstruktory

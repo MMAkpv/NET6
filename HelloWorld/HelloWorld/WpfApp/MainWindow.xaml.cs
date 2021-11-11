@@ -1,4 +1,5 @@
-﻿using ObjektoveProgramovani.Model;
+﻿using ObjektoveProgramovani.Data;
+using ObjektoveProgramovani.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,27 +27,34 @@ namespace WpfApp
             InitializeComponent();
         }
 
-        private void btnHello_Click(object sender, RoutedEventArgs e)
-        {
-            txbInfo.Text = "Ahoj " + txtBox.Text;
-        }
-
-        private void txtBox_GotFocus(object sender, RoutedEventArgs e)
-        {
-            txtBox.Text = string.Empty;
-        }
+        
 
         private void btnPersonDetail_Click(object sender, RoutedEventArgs e)
         {
-            Person p = new Person();
-            p.FirstName = "Alice";
-            p.LastName = "Smith";
-            p.DateOfBirth = new DateTime(1981, 8, 11);
+            //pokročili jsme dál, schoval jsem...
+            //Person p = new Person();
+            //p.FirstName = "Alice";
+            //p.LastName = "Smith";
+            //p.DateOfBirth = new DateTime(1981, 8, 11);
+
+            Person p = (Person)grdPeople.SelectedItem; //musel jsem to přetypovat na person, aby vědělo co to je za objekt, načtu označený řádek z gridu
 
 
-
+            
             PersonDetail pdWindow = new PersonDetail(p);
-            pdWindow.Show();
+            pdWindow.Show(); //pdWindow.ShowDialog() //otevření jako dialogové okno, nepůjde jich otevřít víc a dokud ho neukončím, nemůžu se vrátit
+        }
+
+        private void wMain_Loaded(object sender, RoutedEventArgs e)
+        {
+            var dir = @"C:\Users\PC\source\repos\CNET1\HelloWorld\HelloWorld\ObjektoveProgramovani\Data\";
+            var filePath = System.IO.Path.Combine(dir, "people.txt");
+            var people = PersonData.LoadPeople(filePath);
+
+            //aby se mi zobrazila dobře adresa, která je objektem, tak jsem udělal override ToString na adrese :)
+
+            grdPeople.ItemsSource = people;
+
         }
     }
 }

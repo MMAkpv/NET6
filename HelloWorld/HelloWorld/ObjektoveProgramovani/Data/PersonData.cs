@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ObjektoveProgramovani.Data
 {
-    class PersonData
+    public class PersonData
     {
-        const string personDataFile = "people.txt"; //field, podobné property, ale dělat jen pro třídu, tedy to co neposkytuju ven... fieldy tedy jen pro moje např. výpočty. Mohl by to být i klidně property. Je statická, bude se to týkat všech instancí. Const - konstanta, aby nikdo nezmněnil.
+        public const string personDataFile = "people.txt"; //field, podobné property, ale dělat jen pro třídu, tedy to co neposkytuju ven... fieldy tedy jen pro moje např. výpočty. Mohl by to být i klidně property. Je statická, bude se to týkat všech instancí. Const - konstanta, aby nikdo nezmněnil.
 
         //metoda pro uložení (připojení - appending) jedné osoby do souboru
         public static void SavePerson(Person person)
@@ -21,11 +21,11 @@ namespace ObjektoveProgramovani.Data
             File.AppendAllText(personDataFile, line);
         }
 
-        public static List<Person> LoadPeople()
+        public static List<Person> LoadPeople(string file = "people.txt")
         {
             List<Person> people = new List<Person>();
 
-            var lines = File.ReadAllLines(personDataFile);
+            var lines = File.ReadAllLines(file);
 
             foreach (var line in lines)
             {
@@ -37,7 +37,7 @@ namespace ObjektoveProgramovani.Data
                 p.LastName = items[1];
                 p.DateOfBirth = DateTime.Parse(items[2]);
                 p.HomeAddress.City = items[3];
-                p.HomeAddress.City = items[4];
+                p.HomeAddress.Street = items[4];
 
                 people.Add(p);
             }

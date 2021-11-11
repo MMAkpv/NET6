@@ -5,23 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
+        Loaded="wMain_Loaded"
         Title="Hlavní okno" Height="500" Width="500" Background="#FFA9B9DA" HorizontalContentAlignment="Center">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="2*"/>
-        </Grid.RowDefinitions>
+
 
         <!--<Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>-->
-
-        <Button x:Name="btnHello" Grid.Row="2" Content="Button" HorizontalAlignment="Stretch" Margin="10,10,10,10" VerticalAlignment="Center" FontSize="22" Click="btnHello_Click"/>
-        <TextBlock x:Name="txbInfo"  Grid.Row="0" Padding="10,10,10,10" Text="Pozdrav" FontSize="40" TextAlignment="Center" TextWrapping="Wrap" HorizontalAlignment="Stretch"  Background="#FF3C7018" VerticalAlignment="Center" Margin="10,0,10,0"/>
-        <TextBox x:Name="txtBox" Grid.Row="1" Text="Zadej jméno v 5. pádě" HorizontalAlignment="Stretch" TextWrapping="Wrap" VerticalAlignment="Center" Margin="10,10,10,10" FontSize="24" TextAlignment="Center" GotFocus="txtBox_GotFocus"/>
-        <Button x:Name="btnPersonDetail" Content="Detail Osoby" FontSize="24" HorizontalAlignment="Center" Margin="0,97,0,0" Grid.Row="3" VerticalAlignment="Top" Padding="10,10,10,10" Click="btnPersonDetail_Click"/>
+        <Button x:Name="btnPersonDetail" Content="Detail Osoby" FontSize="24" HorizontalAlignment="Left" Margin="288,97,0,0" VerticalAlignment="Top" Padding="10,10,10,10" Click="btnPersonDetail_Click"/>
+        <Label x:Name="label" FontSize="24" Content="List osob" HorizontalAlignment="Left" Margin="36,103,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="grdPeople" Margin="0,170,0,0"/>
 
     </Grid>
 </Window>
