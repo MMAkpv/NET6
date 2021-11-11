@@ -1,4 +1,5 @@
-﻿using ObjektoveProgramovani.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using ObjektoveProgramovani.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,9 +17,35 @@ namespace WpfApp.Data
         {
             using(var db = new PeopleContext())
             {
-                var peopleList = db.People.ToList(); //načtu do list peoplelist tabulku People
+                var peopleList = db.People
+                    .Include(x => x.HomeAddress)
+                    .Include(x => x.Cars)
+                    .ToList(); //načtu do list peoplelist tabulku People, include říká, aby se vzali i data z odkazovaných tabulek...
 
                 people = new ObservableCollection<Person>(peopleList); // načtený list uložim do observableColl people
+            }
+        }
+
+        public static void SavePerson(Person personToSave)
+        {
+            using(var db = new PeopleContext())
+            {
+                var dbperson = db.People.Find(personToSave.Id); //zjistím si ID té osoby, kterou měním v db
+
+                dbperson.FirstName = personToSave.FirstName;
+                dbperson.LastName = personToSave.LastName;
+
+                db.SaveChanges();
+            }
+        }
+
+        public static void AddPerson(Person person)
+        {
+            using (var db = new PeopleContext())
+            {
+                db.People.Add(person); //přidám novou osobu...
+
+                db.SaveChanges();
             }
         }
     }

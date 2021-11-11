@@ -42,7 +42,7 @@ namespace WpfApp
 
 
             
-            PersonDetail pdWindow = new PersonDetail(p);
+            PersonDetail pdWindow = new PersonDetail(p, this, false); //this je že posílám toto okno, resp. odkaz na něj
             pdWindow.Show(); //pdWindow.ShowDialog() //otevření jako dialogové okno, nepůjde jich otevřít víc a dokud ho neukončím, nemůžu se vrátit
         }
 
@@ -66,14 +66,54 @@ namespace WpfApp
         private void wMain_Loaded(object sender, RoutedEventArgs e)
         {
             //LoadInitialDataset(); //volal jsem ji jen jednou pro naplnění db
-            var dir = @"C:\Users\PC\source\repos\CNET1\HelloWorld\HelloWorld\ObjektoveProgramovani\Data\";
-            var filePath = System.IO.Path.Combine(dir, "people.txt");
-            var people = PersonData.LoadPeople(filePath);
+            //var dir = @"C:\Users\PC\source\repos\CNET1\HelloWorld\HelloWorld\ObjektoveProgramovani\Data\";
+            //var filePath = System.IO.Path.Combine(dir, "people.txt");
+            //var people = PersonData.LoadPeople(filePath);
 
-            //aby se mi zobrazila dobře adresa, která je objektem, tak jsem udělal override ToString na adrese :)
+            DataAccess.LoadPeopleFromDb();
+            grdPeople.ItemsSource = DataAccess.people;
 
-            grdPeople.ItemsSource = people;
 
+            //aby se mi zobrazila dobře adresa, která je objektem, tak jsem udělal override ToString na třídě adresa :)
+
+            //grdPeople.ItemsSource = people;
+
+        }
+
+        private void grdPeople_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnPersonDetail.IsEnabled = true;
+        }
+
+        private void btnAddNewPerson_Click(object sender, RoutedEventArgs e)
+        {
+            PersonDetail pdWindow = new PersonDetail(null, this, true); //this je že posílám toto okno, resp. odkaz na něj
+            pdWindow.Show();
+        }
+
+        private void txtInput_KeyUp(object sender, KeyEventArgs e)
+        {
+            var search = txtInput.Text;
+
+            if (!string.IsNullOrEmpty(search))
+            {
+                grdPeople.ItemsSource = DataAccess.people.Where(x => x.FirstName.ToLower().Contains(search.ToLower()) || x.LastName.ToLower().Contains(search.ToLower()));
+            }
+            else
+            {
+                grdPeople.ItemsSource = DataAccess.people;
+            }
+        }
+
+        private void btnCancelSearch_Click(object sender, RoutedEventArgs e)
+        {
+            txtInput.Text = string.Empty;
+            grdPeople.ItemsSource = DataAccess.people;
+        }
+
+        private void txtInput_GotFocus(object sender, RoutedEventArgs e)
+        {
+            txtInput.Text = string.Empty;
         }
     }
 }
